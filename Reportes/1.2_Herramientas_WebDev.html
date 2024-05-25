@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Reporte de las herramientas relacionadas con el desarrollo web</title><style>
+    /* cspell:disable-file */
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        padding-inline-start: 0;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    .page-description {
+        margin-bottom: 2em;
+    }
+    
+    .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+    }
+    .simple-table td {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table th {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+    }
+    .simple-table-header {
+        font-weight: 500;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 50vh;
+        
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+    .pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+    .pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+    .pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+    .pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+    .pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+    .pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .highlight-default {
+        color: rgba(55, 53, 47, 1);
+    }
+    .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .block-color-default {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+        background: rgba(241, 241, 239, 1);
+    }
+    .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+    .select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+    .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+    .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+    .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+    .select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+    .select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+    .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+    .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+    .select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+    .select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+    .select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+    .select-value-color-pageGlass { background-color: undefined; }
+    .select-value-color-washGlass { background-color: undefined; }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+
+    </style></head><body>
+        <article id="2a8f26c2-8833-4599-b97a-c0268ed1d0af" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1639236654496-b4991787e81d?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="object-position:center 100%"/><h1 class="page-title">Reporte de las herramientas relacionadas con el desarrollo web</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Subject</th><td><span class="selected-value select-value-color-pink">Web</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Categoria</th><td><span class="selected-value select-value-color-default">Assignment</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Dominio</th><td><span class="selected-value select-value-color-orange">In progress</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>Due Date</th><td><time>@May 24, 2024 9:00 PM</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Mode</th><td><span class="selected-value select-value-color-green">UTCh</span></td></tr></tbody></table></header><div class="page-body">
+    <h1 style="background-color: aquamarine">What is it?</h1></p><blockquote id="21a5b595-48e3-47c6-a2cd-9fe51a5c3474" class="">El desarrollo web es compuesto por un amplio compendio de herramientas donde cada una de ellas tiene un objetivo claro y una aplicación <strong>concreta.</strong></blockquote><p id="f44a977f-cfff-4218-ab44-ad720becd3b4" class="">Para la correcta gestión de los conceptos, estos se dividen en categorías que determinan el campo de acción de donde son aplicadas: <mark class="highlight-teal"><strong>Front-End </strong></mark>y <strong><mark class="highlight-purple">Back-End</mark></strong> technologies.</p><h1 id="0a98953a-0b83-4cc9-8cd6-cfac95f269af" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-teal">Front-end technologies</mark></span></h1><div id="fb916ce5-35b6-4df4-a893-4b72246e1dbb" class="column-list"><div id="f105f7a9-dc39-4aa6-86df-9794fa91aa72" style="width:50%" class="column"><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="4f11dafa-705a-4400-91ae-48b9c391216a"><div style="font-size:1.5em"><span class="icon">🏗️</span></div><div style="width:100%">HTML </div></figure><p id="6008f7fe-6b56-4dae-92fc-d1015a9cd703" class="">Hypertext Markup Language, (Lenguage de marcado de hiper texto) es el codigo que sostiene la estructura basica de una pagina web, asegurandonos de contar con un formato correcto.</p></div><div id="51286ffe-5f77-49a3-baec-cbc1baf8e951" style="width:50%" class="column"><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="5b25e068-a7bb-4cf7-a980-3a553a27b75c"><div style="font-size:1.5em"><span class="icon">🎨</span></div><div style="width:100%">CSS</div></figure><p id="f7052922-f8b2-401d-a05b-63fef8d39992" class="">Cascade Style Sheets, determina el estilo y estética de una pagina web, es el lenguaje que acompaña a HTML para estilizarlo y describe como los elementos de un codigo HTML deben de ser mostrados.</p></div></div><div id="68a692c9-3020-407e-b1d9-20e70fbc09cc" class="column-list"><div id="50065603-e1f0-47ae-be05-607f3f1bc84a" style="width:50%" class="column"><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="518d8620-cb85-4ad0-80eb-cac4d394e3c4"><div style="font-size:1.5em"><span class="icon">🧨</span></div><div style="width:100%">JavaScript</div></figure><p id="6508c354-2d09-428f-b039-d21574dd94df" class="">Es el componente de las paginas web que permite la interactivdad y un comportamiento dinamico de la pagina, mejora la experiencia de usuario al permitirle interactuar directamente con el contenido.</p><p id="c6920f6f-d12e-4a1e-83c1-f11c0a675c30" class="">
+    </p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0269f85a-1e3f-48e8-b08d-16b5f0109ca4"><div style="font-size:1.5em"><span class="icon">🧨</span></div><div style="width:100%"><strong>SASS/LESS</strong> </div></figure><p id="aeb9e382-0813-4d4b-bfdd-c8535aea280f" class="">Preprocesadores de CSS que permiten escribir estilos de manera más eficiente.</p></div><div id="b70cfc3d-7760-47a0-b6ef-d89a5f8c8352" style="width:50%" class="column"><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="5c8d4e2c-60e5-4bf9-9ac0-a88e17c99546"><div style="font-size:1.5em"><span class="icon">🃏</span></div><div style="width:100%">Front-end Frameworks</div></figure><p id="951683bd-728d-46e4-a1ab-4125c290a2bf" class="">Son colecciones de códigos pre fabricados y herramientas diseñadas para formar un ambiente de desarrollo más completo y cómodo para el desarrollador, promoviendo mejores practicas para el desarrollo de UI y UX.</p><p id="4847fff8-52e5-447a-8693-6c8646e9ee35" class="">Los frameworks mas usados en la comunidad de desarrollo son <strong>React, angular, Vue.js, Svelte, Tailwind.</strong></p><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="1f1206e1-dd97-4e89-bada-8bdde859c227"><div style="font-size:1.5em"><span class="icon">📐</span></div><div style="width:100%"><strong>Bootstrap</strong></div></figure><p id="2efd59f0-24fc-4258-9601-03f9e43542d3" class="">Framework de CSS que facilita el diseño <strong>responsivo</strong> y la creación de interfaces web.</p></div></div><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="06b6a2c9-994c-4806-b85a-7bdfdcca23e9"><div style="font-size:1.5em"><span class="icon">📐</span></div><div style="width:100%"><mark class="highlight-red"><strong>Representación visual</strong></mark><figure id="10dd16af-0993-4ea6-8c6c-b9accb98c7ce" class="image"><a href="https://www.interviewbit.com/blog/wp-content/uploads/2021/10/HTML-and-CSS.png"><img src="https://www.interviewbit.com/blog/wp-content/uploads/2021/10/HTML-and-CSS.png"/></a></figure></div></figure><h1 id="d35a55da-a7f2-4aa8-8ab3-323674833300" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-purple">Back-end technologies</mark></span></h1><p id="f9711385-6073-4f71-9f1e-9b4bf200c6ef" class="">El backend de una aplicación o pagina web se refiere a el código del lado del servidor (server-side code) que corre en el mismo.</p><p id="3d1ce00b-3e72-4e3d-a2ef-263d6850e982" class="">Es responsable de procesar las peticiones del cliente, ejecutando procesos logicos prestablecidos y devolviendo la información apropiada al cliente, los componentes incluyen desde el servidor, el codigo, la aplicacion y la base de datos.</p><figure id="68c67259-e653-4c16-8d70-a3f4292e0335" class="image"><a href="https://i.ytimg.com/vi/YGxrvHGCJ2Y/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGDcgTyhyMA8=&amp;rs=AOn4CLBATnbcD1mhkWi8CXsqbzYTDJRDUw"><img src="https://i.ytimg.com/vi/YGxrvHGCJ2Y/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGDcgTyhyMA8=&amp;rs=AOn4CLBATnbcD1mhkWi8CXsqbzYTDJRDUw"/></a></figure><h2 id="b1b9da30-ada8-4fb0-9579-d77e424babc2" class=""><mark class="highlight-red">Server</mark></h2><p id="cae393bc-7b8a-4e86-b77b-aef6621c2aae" class="">El trabajo principal de un servidor de internet: <strong>Alojar, procesar y entregar paginas web</strong> a usuarios.</p><p id="0f075202-28f1-4031-8fe2-4a12e83cf582" class="">Un servidor sigue los siguientes pasos:</p><ol type="1" id="a611b183-d1de-42f8-8b03-6945dc5f6896" class="numbered-list" start="1"><li>Una persona ingresa una direccion URL en su navegador.</li></ol><ol type="1" id="42914e1c-84d0-4db6-b05d-b05f93ee17a5" class="numbered-list" start="2"><li>El navegador obtiene la direccion IP del nombre del dominio, ya sea por traduccion de URL a través de DNS o accediendo a la memoria caché.</li></ol><ol type="1" id="0f90c28b-47bc-4344-bc44-4141e64fa436" class="numbered-list" start="3"><li>El navegador pide el archivo de la pagina a el servidor que la aloja por medio de una HTTP request.</li></ol><ol type="1" id="bd37dd00-5161-4370-be7a-8858c8dbd945" class="numbered-list" start="4"><li>El servidor envía la pagina solicitada por medio del protocolo mencionado.</li></ol><p id="d2b74c4a-8723-43f3-9b14-4aafdf481538" class="">Los servidores hacen que estas paginas puedan existir en todas partes al mismo tiempo, siendo un pilar en la gigante industria de internet.</p><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="968e7c1a-0950-4846-8104-0e4f7e7a11d0"><div style="font-size:1.5em"><span class="icon">💉</span></div><div style="width:100%"><mark class="highlight-teal"><strong>Server TL:DR</strong></mark><p id="a3aced12-23db-46f8-b052-29ebceada805" class="">Cuando alguien accede a un sitio web, su navegador envía una petición al servidor web, que recupera el contenido solicitado y lo devuelve al navegador para su visualización. Este proceso es esencial para hacer posible la funcionalidad e interactividad de los sitios web, permitiendo a los usuarios navegar, interactuar y acceder a la información sin problemas.</p></div></figure><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="79b13315-25f2-4177-abeb-51fec10e61d9"><div style="font-size:1.5em"><span class="icon">❓</span></div><div style="width:100%"><strong>¿Los servidores viven dentro de VSCode?<br/>No<br/><br/></strong>Vs code no cuenta con una función de servidor nativo, aunque puede agregarse con <strong>plug-ins</strong>.<br/>Estos servidores no viven dentro de VSCode (o el IDE usado), mas bien se ejecutan dentro de la linea de comandos de nuestra computadora, es un componente que vive separado del editor de codigo.<br/></div></figure><h2 id="7de2193b-769a-4991-98c7-389515460d9f" class=""><mark class="highlight-blue">Base de datos</mark></h2><p id="abdc253b-6529-4814-9c3e-b8d9a0004022" class="">Software que almacena y trabaja con los datos de websites o aplicaciones web. La base de datos es la ubicación central donde nuestra pagina y los datos que manejamos en esta viven, guarda datos de usuario, datos del negocio, datos de la lógica, todo esto a gran escala y de forma segura.</p><div id="ab9446a1-c41a-4b93-af20-f742a467c8bd" class="column-list"><div id="f2c96e57-7fa1-40d5-b763-e10286177b80" style="width:56.25%" class="column"><p id="0711741b-793c-47b9-813e-63d76a8d3512" class="">Un claro entendimiento de su funcionamiento permite que los desarrolladores web organicen datos en estructuras lógicas y puedan acceder a ellas de manera eficiente cuando sea necesario.</p><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="de46efe6-3ef3-4dc6-9774-a065fb8ad94e"><div style="font-size:1.5em"><span class="icon">💉</span></div><div style="width:100%"><strong><mark class="highlight-orange"><span style="border-bottom:0.05em solid">Facetas de las bases de datos</span></mark></strong><ul id="871f6151-3c52-4131-aaf9-727d13aadb05" class="toggle"><li><details open=""><summary><strong>Ingeniería de pipelines de datos y su administración.</strong></summary><p id="1388b29e-0c90-4737-a6f7-9b30e85a1c48" class="">Crear la estructura de recolección, almacenamiento y procesamiento de muchos datos.</p></details></li></ul><ul id="176727f7-2dfd-408e-959f-4592de4576c8" class="toggle"><li><details open=""><summary><strong>Seguridad</strong>.</summary><p id="4d28cbe1-3691-4438-ba34-eeaf302fdc19" class="">Al usar estándares actualizados, métodos de encriptación  y autenticación, las bases de datos pueden proteger información sensible de nuestros usuarios y de nuestro negocio.</p></details></li></ul><ul id="fb6023c7-0a7f-4bcc-b0f5-a608c72aec0b" class="toggle"><li><details open=""><summary><strong>Escalabilidad</strong>.</summary><p id="fd2cf16d-02a5-43f1-867d-628fb200ce51" class="">Es parte esencial del ADN   de las bases de datos modernas, permitiendo crecer la base de datos a la par de nuestro negocio.</p></details></li></ul><ul id="39b88039-f2c3-4640-850d-e54d3c452ae4" class="toggle"><li><details open=""><summary><strong>Optimización de  rendimiento.</strong></summary><p id="8094b300-fe4f-423e-b982-0c31c6aa29ca" class="">Es necesario contar con procedimientos de optimización para evitar que nuestro programa sufra de cuellos de botella para asegurar altos volúmenes de datos y transacciones cliente-servidor.</p></details></li></ul><ul id="de31cbaf-5d44-4e53-b441-325a5e6bbb63" class="toggle"><li><details open=""><summary><strong>Mantenimiento</strong>.</summary><p id="e4e0a2ba-d458-45a7-9a32-5487c2029cc4" class="">Las bases de datos necesitan de mantenimiento como limpiar, ordenar, deshacerse de metodologías sin resultados, mejorar la lógica de recolección, etc, para que las bases de datos puedan seguir corriendo de forma correcta y satisfactoria.</p></details></li></ul></div></figure></div><div id="c041216f-e6ff-43ae-a538-63fa21476314" style="width:43.75%" class="column"><figure id="a9a6cb2f-bb6c-4cc0-99d5-a9018978673d" class="image"><a href="https://www.datocms-assets.com/48294/1660026091-wad-database-5-client-server-architecture.png?auto=format"><img src="https://www.datocms-assets.com/48294/1660026091-wad-database-5-client-server-architecture.png?auto=format"/></a></figure></div></div><p id="8920e384-4556-4c25-9969-9994cab184ef" class="">
+    </p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
+
+</body></html>
